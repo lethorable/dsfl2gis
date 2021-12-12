@@ -1,0 +1,54 @@
+#
+# dsfl2ogr code table
+#
+# Lines not marked with with "#" will give a translation between a DSFL code and
+# corresponding name in the output file. %-sign are stripped from the DSFL
+# code.
+#
+#
+%KA2%U1         Områdepolygon
+%KG2%U91        Bypolygon
+%KG3%U1         Vejkant
+%KG3%U17        Helle
+%KG3%U24        Parkering
+%KG3%U51        Trafikhegn
+%KG3%U561       Chikane
+%KG3%U6         Standsningssted
+%KG3%U611       Jernbane
+%KG3%U91        Vejmidte
+%KG4%U54        Bassin
+%KG4%U7         Bygværk
+%KG4%U91        Bygning
+%KG5%U1         Hegn
+%KG5%U17        Dige
+%KG5%U32        Brugsgrænse
+%KG5%U42        Vandløbskant
+%KG5%U44        Vandløbsmidte
+%KG5%U46        Afvandningsgrøft
+%KG5%U51        Sø
+%KG5%U7         Skrænt
+%KG6%U13        Krat_bevoksning
+%KG6%U17        Skov
+%KG6%U2         Vådområde
+%KG6%U34        Råstofområde
+%KG6%U41        Kirkegård
+%KG6%U45        Teknisk_Areal
+%KG6%U51        Lav_bebyggelse
+%KG6%U52        Høj_bebyggelse
+%KG6%U53        Bykerne
+%KG6%U54        Erhverv
+%KG8%U11        Brønddæksel
+%KG8%U12        Nedløbsrist
+%KG8%U32        Højspændingsledning
+%KG8%U33        Højspændingsmastefundament
+%KG8%U34        Mast
+%KG8%U363       Telemast
+%KG8%U37        Telemastefundament
+%KG8%U55        Trægruppe
+%KG8%U551       Træ
+%KG8%U6         Statue_Sten
+#
+#
+# Attributes can be translated as well
+D9111           Type
+D9113           Målested
