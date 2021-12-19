@@ -100,13 +100,9 @@ def main(args):
 	#Collect a list of attribute types represented in MyAss
 	AttribTypesA =[]
 	for i in range(len(MyAss)):
-#		print (MyAss[i])
 		if len(MyAss[i].strip())>0:
 			AktObj = MyAss[i].split(' ')
-#			print (AktObj)
-			#sys.exit()
 			AktObj = list(filter(None, AktObj))
-#			print(AktObj)
 			if (AktObj[0][0]).upper() == 'D':
 				if not AktObj[0] in AttribTypesA:
 					if (AktObj[0]).upper() != 'D':
@@ -116,7 +112,6 @@ def main(args):
 
 	for Att in AttribTypesA:
 		print (Att)
-#	print (args)
 	if '-liststop' in args:
 		sys.exit(1)
 
@@ -142,7 +137,6 @@ def main(args):
 		dim = 3 #It's either XYX,NEH, ENH, YXZ (three letters)
 	else:
 		dim = 2
-
 	if (((HeaderA["H3"])[0]== "X") or ((HeaderA["H3"])[0]== "E")):
 		coordsequence = 0 #Either XYZ, XYH, ENH, ENZ, EN, XY etc
 	else:
@@ -150,7 +144,6 @@ def main(args):
 
 	print("coordsequence %s" %coordsequence)
 	print("dim %s" %dim)
-
 
 	#Create the attribute fields on the shape file - we don't care if it makes sense or not
 	#Unused attribute fields will be deleted later
@@ -163,7 +156,7 @@ def main(args):
 	FeatureDefnA.append(LayersA[1].GetLayerDefn())
 	FeatureDefnA.append(LayersA[2].GetLayerDefn())
 
-	#Now we parse the file. We only look for valid geometries (points, lines, polygons and polygon holes)
+	#Parsing the file, looking for valid geometries (points, lines, polygons and polygon holes)
 	PolyOpen=False
 	aktAttribA ={}
 	for i in range(len(MyAss)): #Keep going until MyAss is empty
@@ -174,16 +167,13 @@ def main(args):
 
 			if AktTyp[0].upper()=='D':
 				if len(AktTyp) == 1: #%D will cancel all attributes
-					aktAttribA ={}
-#					print ("attributes cancelled - all of them")
+					aktAttribA ={} #print ("attributes cancelled - all of them")
 					continue
 				if len(AktObj) > 1: #We have attribute with value(s).
-					aktAttribA[AktObj[0]]=' '.join(AktObj[1:])
-#					print ("attribute set: ", AktObj[0], ' '.join(AktObj[1:]))
+					aktAttribA[AktObj[0]]=' '.join(AktObj[1:]) #print ("attribute set: ", AktObj[0], ' '.join(AktObj[1:]))
 					continue
 				if len(AktObj) == 1:
-					#This specific attribute is cancelled.
-#					print ("attribute cancelled: ",AktObj[0])
+					#This specific attribute is cancelled. #print ("attribute cancelled: ",AktObj[0])
 					del aktAttribA[AktObj[0]]
 					continue
 
@@ -219,8 +209,7 @@ def main(args):
 						ring.AddPoint(float(PolA_X[j]),float(float(PolA_Y[j])), -999)
 				poly.AddGeometry(ring)
 				del(ring)
-#				if NextTyp == 'F4KR': #Hole in polygon
-#					print ("HOLE")
+#				if NextTyp == 'F4KR': #Hole in polygon # print ("HOLE")
 				if NextTyp !='F4KR': #Holes have to be in sequence. If the next obj is not a hole - close the object
 					feature = ogr.Feature(FeatureDefnA[1])
 					feature.SetGeometry(poly)
@@ -257,7 +246,7 @@ def main(args):
 				LayersA[2].CreateFeature(feature)
 				del(line)
 
-			if (AktTyp == 'P1K') or (len(AktTyp) ==2 and AktTyp[0] == 'T') : #point
+			if (AktTyp == 'P1K') or (len(AktTyp) ==2 and AktTyp[0] == 'T') :
 				#Point
 				point = ogr.Geometry(ogr.wkbPoint25D)
 				if coordsequence ==1:
