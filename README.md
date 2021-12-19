@@ -54,6 +54,8 @@ It is fairly easy to alter the script to a different ogr target (for instance Po
 
 ## Disclaimer/License
 
+The included DSFL data is from GeoDanmark. Data can be distributed freely with the acknowledgement of (c) Styrelsen for Dataforsyning og Effektivisering, (c) GeoDanmark and (c) FOTDanmark.
+
 See attached license
 
-Copyright 2022 Thorbjørn Nielsen
+Copyright (C) 2022 Thorbjørn Nielsen
