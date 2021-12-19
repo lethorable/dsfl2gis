@@ -52,3 +52,5 @@
 # Attributes can be translated as well
 D9111           Type
 D9113           Målested
+D9114           NN
+
